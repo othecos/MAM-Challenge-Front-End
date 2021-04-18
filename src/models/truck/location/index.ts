@@ -1,36 +1,49 @@
-import {isNil} from 'lodash'
- 
+import { isDate, isNil } from 'lodash'
+
 export default class Location {
 
     private lat: number | null
-    private lon: number | null
-    private insertDate: Date | null = null
+    private lng: number | null
+    public insertDate: Date | null = null
 
     /**
      *
      * @param {number} lat
-     * @param {number} lon
+     * @param {number} lng
      */
-    constructor(lat = 0, lon = 0) {
+    constructor(lat = 0, lng = 0) {
         this.lat = lat
-        this.lon = lon
+        this.lng = lng
     }
 
 
     setDataFromDB(location: any): void {
         if (location) {
             if (!isNil(location.lat)) this.lat = location.lat
-            if (!isNil(location.lon)) this.lon = location.lon
-            if (!isNil(location.insertDate)) this.insertDate = location.insertDate
+            if (!isNil(location.lng)) this.lng = location.lng
+            if (!isNil(location.insertDate)) {
+                if (isDate(location.insertDate)) this.insertDate = location.insertDate
+                else {
+                    const newDate = new Date(location.insertDate)
+                    if (isDate(newDate)) this.insertDate = newDate
+                }
+
+            }
 
         }
     }
+    toCoordinates() {
+        return {
+            lat: this.lat,
+            lng: this.lng
+        }
+    }
 
-   
+
     toJSON(): any {
         return {
             lat: this.lat,
-            lon: this.lon,
+            lng: this.lng,
             insertDate: this.insertDate
         }
     }

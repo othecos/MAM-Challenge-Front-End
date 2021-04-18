@@ -8,7 +8,7 @@ interface Props {
  
 }
 
-const FormikInput = (props: Props & TextFieldProps) => {
+const FormikInputComponent = (props: Props & TextFieldProps) => {
     const [field, meta, helpers] = useField(props as any);
     const { name } = props
     return (
@@ -26,4 +26,4 @@ const FormikInput = (props: Props & TextFieldProps) => {
     )
 };
 
-export default FormikInput;
+export default FormikInputComponent;

@@ -29,7 +29,6 @@ export default class Truck {
     }
 
     setDataFromDB(truckDB: any): void {
-      
         if (truckDB) {
             if (truckDB._id) this._id = truckDB._id
             if (truckDB.license_plate) this.license_plate = truckDB.license_plate
@@ -46,8 +45,13 @@ export default class Truck {
         }
     }
 
-    
 
+    sortHistoryLocationAsc() {
+        if (this.location.history && Array.isArray(this.location.history)) {
+            this.location.history.sort((a, b) => a.insertDate.getTime() - b.insertDate.getTime())
+
+        }
+    }
     toJSON(): any {
         return {
             license_plate: this.license_plate,
@@ -57,7 +61,7 @@ export default class Truck {
             }
         }
     }
-    toOption():any{
+    toOption(): any {
         return {
             value: this.license_plate,
             label: this.license_plate

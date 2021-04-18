@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext, createContext, useRef } from 'react';
+import React, { createContext, useContext, useRef, useState } from 'react';
 
-import { KeyPair } from './../models/utils';
 export interface ContextProps {
 
     routeDistance: string,
@@ -13,13 +12,15 @@ export interface ContextProps {
 
     routeInfoVisibility: boolean,
     origin: {
-        latitude: number,
-        longitude: number
+        lat: number,
+        lng: number
     },
     destiny: {
-        latitude: number,
-        longitude: number
+        lat: number,
+        lng: number
     },
+
+    locations: Array<any>
     markers: Array<any>, 
     map: any,
     mapRef: React.MutableRefObject<any>
@@ -35,21 +36,22 @@ export interface ContextProps {
 
     setRouteInfoVisibility: React.Dispatch<React.SetStateAction<boolean>>,
     setMarkerVisibility: React.Dispatch<React.SetStateAction<boolean>>,
-    setOrigin: React.Dispatch<React.SetStateAction<{
-        latitude: number;
-        longitude: number;
-    }>>,
-    setDestiny: React.Dispatch<React.SetStateAction<{
-        latitude: number;
-        longitude: number;
-    }>>,
+    setOrigin: (value:{
+        lat: number;
+        lng: number;
+    }) => void;
+    setDestiny: (value:{
+        lat: number;
+        lng: number;
+    }) => void;
 
 
     setActiveLicensePlate: React.Dispatch<React.SetStateAction<string>>,
     setActivePoiType: React.Dispatch<React.SetStateAction<string>>,
     setActiveRadius: React.Dispatch<React.SetStateAction<string>>,
 
-    setMarkers: React.Dispatch<React.SetStateAction<any[]>>, 
+    setLocations: (value: any) => void, 
+    setMarkers: (value: any) => void, 
     setMap: React.Dispatch<React.SetStateAction<any>>,
     setMapLoaded: React.Dispatch<React.SetStateAction<boolean>>,
 
@@ -61,6 +63,7 @@ export interface ContextProps {
     handleRouteVisibility: (value: any) => void,
     clearMarkers: () => void
     clearRoutes: () => void
+    clearLocations: () => void
 }
 
 export const GoogleMapsContext = createContext<ContextProps>(null)
@@ -71,14 +74,19 @@ export function ProvideGoogleMapsContext({ children }) {
 }
 
 const initialCoordinatesValue = {
-    latitude: 0,
-    longitude: 0
+    lat: 0,
+    lng: 0
 }
 
 let markers = [] 
 let destinyMarker = null
 let originMarker = null
 let isSearchingForPOI = false
+
+let locations = []
+
+let origin = initialCoordinatesValue
+let destiny = initialCoordinatesValue
 function useProvideGoogleMapContext() {
     //Map Variables
     const mapRef = useRef()
@@ -92,9 +100,7 @@ function useProvideGoogleMapContext() {
     
     //Route
     const [routeDistance, setRouteDistance] = useState('')
-    const [routeInfoVisibility, setRouteInfoVisibility] = useState(false)
-    const [origin, setOrigin] = useState(initialCoordinatesValue)
-    const [destiny, setDestiny] = useState(initialCoordinatesValue)
+    const [routeInfoVisibility, setRouteInfoVisibility] = useState(false) 
 
 
 
@@ -109,6 +115,12 @@ function useProvideGoogleMapContext() {
     }
     const setDestinyMarker = (value) => {
         destinyMarker = value
+    }
+    const setOrigin = (value) => {
+        origin = value
+    }
+    const setDestiny = (value) => {
+        destiny = value
     }
     const setOriginMarker = (value) => {
         originMarker = value
@@ -137,22 +149,29 @@ function useProvideGoogleMapContext() {
       
 
     }
-    const clearRoutes = () => {
-
+    const clearLocations = () => { 
+        if (locations && locations.length > 0) {
+            for (let index = 0; index < locations.length; index++) { 
+                const location = locations[index]; 
+                if (location) location.setMap(null) 
+            }
+            locations = [] 
+        } 
+    }
+    const clearRoutes = () => { 
         setRouteDistance(null)
         setRouteInfoVisibility(false)
         if (destinyMarker) {
-            destinyMarker.setMap(null)
-
+            destinyMarker.setMap(null) 
         }
     }
     const setMarkers = (value) => {
         markers = value
     }
-   
-
-
-
+    const setLocations = (value) => {
+        locations = value
+    }
+    
     return {
         map,
         mapRef,
@@ -163,6 +182,8 @@ function useProvideGoogleMapContext() {
         origin,
         destiny,
 
+
+        locations,
 
         activeLicensePlate,
         activePoiType,
@@ -182,6 +203,7 @@ function useProvideGoogleMapContext() {
         setOrigin,
         setDestiny,
 
+        setLocations,
 
         setActiveLicensePlate,
         setActivePoiType,
@@ -197,6 +219,7 @@ function useProvideGoogleMapContext() {
 
         handleMarkerVisibility,
         handleRouteVisibility,
+        clearLocations,
         clearMarkers,
         clearRoutes
     }

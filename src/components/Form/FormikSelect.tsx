@@ -1,7 +1,7 @@
 import React from 'react';
 import { useField, } from 'formik';
 import PropTypes from 'prop-types'
-import { FormControl, Select, MenuItem, SelectProps } from '@material-ui/core';
+import { FormControl, Select, MenuItem, SelectProps, InputLabel } from '@material-ui/core';
 
 interface Props {
     options: Array<{
@@ -12,15 +12,18 @@ interface Props {
     styles: any
 }
 
-const FormikSelect = (props: Props & SelectProps) => {
+const FormikSelectComponent = (props: Props & SelectProps) => {
     const [field, meta, helpers] = useField(props as any);
-    const { options, styles, placeholder } = props
+    const { options, styles, placeholder,label } = props
     
     return (
         <FormControl variant="outlined" className={styles.formControl}>
-
+           {label && <InputLabel   id="demo-simple-select-outlined-label">{label}</InputLabel>}
             <Select
-                defaultValue={options ? options[0].value : ''}
+                labelId="demo-simple-select-outlined-label"    
+                defaultValue={options ? options[0].value : ''}  
+                id="demo-simple-select-outlined-label"
+                label={label}
                 placeholder={placeholder ? placeholder : null}
                 onChange={(option) => {
                     helpers.setValue(option.target.value)
@@ -41,4 +44,4 @@ const FormikSelect = (props: Props & SelectProps) => {
     )
 };
 
-export default FormikSelect;
+export default FormikSelectComponent;

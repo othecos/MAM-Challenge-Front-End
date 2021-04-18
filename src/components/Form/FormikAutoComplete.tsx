@@ -13,7 +13,7 @@ interface Props {
     }>,
 }
 
-const FormikInput = (props: Props & TextFieldProps) => {
+const FormikAutoCompleteComponent = (props: Props & TextFieldProps) => {
     const [field, meta, helpers] = useField(props as any);
     const { name,options } = props
     return (
@@ -36,4 +36,4 @@ const FormikInput = (props: Props & TextFieldProps) => {
     )
 };
 
-export default FormikInput;
+export default FormikAutoCompleteComponent;
