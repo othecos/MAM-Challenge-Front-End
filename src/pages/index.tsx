@@ -5,7 +5,7 @@ import NoSSR from '../components/NoSSR'
 import SnackBarComponent, { SnackBarComponentProps } from '../components/SnackBar'
 import { ProvideGoogleMapsContext } from '../context/useGoogleMaps'
 import TrucksService from '../services/trucks'
-import styles from '../styles/Home.module.scss'
+import styles from '../styles/home.module.scss'
 
 const snackBarInitialData: SnackBarComponentProps & { isOpen: boolean } = {
   message: '',

@@ -4,7 +4,7 @@ import React from 'react'
 import { POI_OPTIONS, RADIUS_OPTIONS } from '../../../config/maps'
 import FormikSelect from '../../Form/FormikSelect'
 import FormikAutoComplete from '../../Form/FormikAutoComplete'
-import styles from './ControlButtons.module.scss'
+import styles from './controlButtons.module.scss'
 import { ContextProps } from '../../../context/useGoogleMaps'
 import { ControlsButtonsSchema } from './ControlButtons.schema'
 

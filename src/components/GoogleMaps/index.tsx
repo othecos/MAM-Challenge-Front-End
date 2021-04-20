@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
-import styles from './../../styles/GoogleMaps.module.scss'
+import styles from './../../styles/googleMaps.module.scss'
 
 import { Loader } from '@googlemaps/js-api-loader';
 import DotenvUtils from '../../utils/dotenv';
