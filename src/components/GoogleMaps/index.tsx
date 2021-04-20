@@ -245,7 +245,7 @@ function GoogleMapsComponent(props: Props) {
 
             if (!element) {
                 element = document.createElement('div')
-                element.style.maxWidth = '100%'
+                element.style.width = '100%'
                 element.id = id
             }
             map.controls[position].push(element);

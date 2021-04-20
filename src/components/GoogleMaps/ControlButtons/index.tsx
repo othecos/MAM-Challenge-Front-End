@@ -1,11 +1,12 @@
-import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@material-ui/core'
+import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, TextField, useMediaQuery } from '@material-ui/core'
 import { Form, Formik } from 'formik'
 import React from 'react'
 import { POI_OPTIONS, RADIUS_OPTIONS } from '../../../config/maps'
 import FormikSelect from '../../Form/FormikSelect'
-import FormikAutoComplete from '../../Form/FormikAutoComplete' 
+import FormikAutoComplete from '../../Form/FormikAutoComplete'
 import { ContextProps } from '../../../context/useGoogleMaps'
 import { ControlsButtonsSchema } from './ControlButtons.schema'
+import { useTheme } from '@material-ui/core/styles';
 
 interface Props {
     options
@@ -17,6 +18,9 @@ const initialValues = {
     radius: '1000'
 }
 export default function ControlButtonsComponent(props: Props) {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+
     const handleSubmit = (value) => {
 
         const { license_plate, poi_type, radius } = value
@@ -25,7 +29,7 @@ export default function ControlButtonsComponent(props: Props) {
             props.googleMapsContext.setActivePoiType(poi_type)
             props.googleMapsContext.setActiveRadius(radius)
         }
-         
+
     }
     const { options } = props
 
@@ -37,17 +41,23 @@ export default function ControlButtonsComponent(props: Props) {
             validationSchema={ControlsButtonsSchema}
             validateOnMount={true}
         >
-            {({ isValidating,isValid }) =>
-                
+            {({ isValidating, isValid }) =>
+
                 <Form>
-                    
-                    <Box bgcolor={'white'} className="google-maps__control__container" maxWidth={'100%'} padding={'1rem'}>
-                        <Grid container direction="row" spacing={2} alignItems={'stretch'} >
-                            <Grid item > <FormikAutoComplete options={options} name={'license_plate'} label={'Search by license plate'} variant='outlined' /> </Grid>
-                            <Grid item > <FormikSelect label={'Select POI type'} options={POI_OPTIONS} name={'poi_type'} className={'google-maps__control__formControl'} /></Grid>
-                            <Grid item >   <FormikSelect label={'Select radius'} options={RADIUS_OPTIONS} name={'radius'} className={'google-maps__control__formControl'} /> </Grid>
-                            <Grid item > 
-                                <Button style={{ height: '100%' }} color='primary' variant="contained" type='submit' disabled={  isValidating || !isValid}> Apply </Button> 
+
+                    <Box bgcolor={'white'} className="google-maps__control__container" maxWidth={'100%'}  >
+                        <Grid container direction={isMobile ? "column" : "row"} alignItems={'stretch'} spacing={2} className="google-maps__control__form-group" >
+                            <Grid container item xs={12} sm={10} direction={isMobile ? "column" : "row"} spacing={2}  >
+                                <Grid item xs={12} sm={4} > <FormikAutoComplete options={options} name={'license_plate'} label={'Search by license plate'} variant='outlined' /> </Grid>
+                                <Grid item xs={12} sm={4} > <FormikSelect label={'Select POI type'} options={POI_OPTIONS} name={'poi_type'} className={'google-maps__control__formControl u-full-width'} /></Grid>
+                                <Grid item xs={12} sm={4} >   <FormikSelect label={'Select radius'} options={RADIUS_OPTIONS} name={'radius'} className={'google-maps__control__formControl u-full-width'} /> </Grid>
+                            </Grid>
+
+                            <Grid container item xs={12} sm={2}spacing={2} >
+                                <Grid item xs={12}>
+                                    <Button style={{ height: '100%', width: '100%' }} color='primary' variant="contained" type='submit' disabled={isValidating || !isValid}> Apply </Button>
+                                </Grid>
+
                             </Grid>
 
                         </Grid>
@@ -62,4 +72,4 @@ export default function ControlButtonsComponent(props: Props) {
 
     )
 }
- 
+

@@ -22,7 +22,7 @@ const FormikAutoCompleteComponent = (props: Props & TextFieldProps) => {
             <Autocomplete 
                 options={options}
                 getOptionLabel={(option)=> option.label}
-                style={{minWidth:'250px'}}
+                style={{  maxWidth: '100%'}}
                 onInputChange={(event,newInputValue)=>{
                    
                     helpers.setValue(newInputValue)
