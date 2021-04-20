@@ -1,8 +1,6 @@
 
-import axios from './../index'
-import { trucks } from './data'
-import { clone } from '../../utils/object'
 import Truck from '../../models/truck'
+import axios from './../index'
 
 export default class TrucksService {
     path = '/trucks'
@@ -28,10 +26,7 @@ export default class TrucksService {
         }
 
 
-    }
-    async findByLicensePlate() {
-
-    }
+    } 
 
 
 }

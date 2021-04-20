@@ -1,12 +1,12 @@
-import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, TextField, useMediaQuery } from '@material-ui/core'
+import { Box, Button, Grid, useMediaQuery } from '@material-ui/core'
+import { useTheme } from '@material-ui/core/styles'
 import { Form, Formik } from 'formik'
 import React from 'react'
 import { POI_OPTIONS, RADIUS_OPTIONS } from '../../../config/maps'
-import FormikSelect from '../../Form/FormikSelect'
-import FormikAutoComplete from '../../Form/FormikAutoComplete'
 import { ContextProps } from '../../../context/useGoogleMaps'
+import FormikAutoComplete from '../../Form/FormikAutoComplete'
+import FormikSelect from '../../Form/FormikSelect'
 import { ControlsButtonsSchema } from './ControlButtons.schema'
-import { useTheme } from '@material-ui/core/styles';
 
 interface Props {
     options

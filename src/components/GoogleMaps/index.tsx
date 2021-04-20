@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
-import ReactDOM from 'react-dom'
-import ReactDOMServer from 'react-dom/server' 
-
 import { Loader } from '@googlemaps/js-api-loader';
-import DotenvUtils from '../../utils/dotenv';
-import { useGoogleMapsContext } from '../../context/useGoogleMaps';
-import ControlButtons from './ControlButtons';
-import Truck from '../../models/truck';
 import { isEmpty } from 'lodash';
-import { LISBON_COORDINATES, MAP_ICONS, MAPS_STYLES } from '../../config/maps';
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
+import { LISBON_COORDINATES, MAPS_STYLES, MAP_ICONS } from '../../config/maps';
+import { useGoogleMapsContext } from '../../context/useGoogleMaps';
+import Truck from '../../models/truck';
+import DotenvUtils from '../../utils/dotenv';
+import ControlButtons from './ControlButtons';
 import DistanceInfoWindow from './InfoWindow/DistanceInfoWindow';
+
 interface Props {
     trucks: Array<Truck>
 }
