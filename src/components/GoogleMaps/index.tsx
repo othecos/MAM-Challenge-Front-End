@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
-import ReactDOMServer from 'react-dom/server'
-import styles from './../../styles/googleMaps.module.scss'
+import ReactDOMServer from 'react-dom/server' 
 
 import { Loader } from '@googlemaps/js-api-loader';
 import DotenvUtils from '../../utils/dotenv';
@@ -310,7 +309,7 @@ function GoogleMapsComponent(props: Props) {
     }, [context.activeLicensePlate])
 
     return (
-        <div id="map" className={styles.mapFull} ref={context.mapRef}></div>
+        <div id="map" className="google-maps__container" ref={context.mapRef}></div>
     )
 }
 
