@@ -9,15 +9,15 @@ interface Props {
         value: any
     }>,
     name: string,
-    styles: any
+    className?: any
 }
 
 const FormikSelectComponent = (props: Props & SelectProps) => {
     const [field, meta, helpers] = useField(props as any);
-    const { options, styles, placeholder,label } = props
+    const { options, className, placeholder,label } = props
     
     return (
-        <FormControl variant="outlined" className={styles.formControl}>
+        <FormControl variant="outlined" className={className ? className : ''}>
            {label && <InputLabel   id="demo-simple-select-outlined-label">{label}</InputLabel>}
             <Select
                 labelId="demo-simple-select-outlined-label"    

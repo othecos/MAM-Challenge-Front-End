@@ -3,8 +3,7 @@ import { Form, Formik } from 'formik'
 import React from 'react'
 import { POI_OPTIONS, RADIUS_OPTIONS } from '../../../config/maps'
 import FormikSelect from '../../Form/FormikSelect'
-import FormikAutoComplete from '../../Form/FormikAutoComplete'
-import styles from './controlButtons.module.scss'
+import FormikAutoComplete from '../../Form/FormikAutoComplete' 
 import { ContextProps } from '../../../context/useGoogleMaps'
 import { ControlsButtonsSchema } from './ControlButtons.schema'
 
@@ -42,11 +41,11 @@ export default function ControlButtonsComponent(props: Props) {
                 
                 <Form>
                     
-                    <Box bgcolor={'white'} className={styles.container} maxWidth={'100%'} padding={'1rem'}>
+                    <Box bgcolor={'white'} className="google-maps__control__container" maxWidth={'100%'} padding={'1rem'}>
                         <Grid container direction="row" spacing={2} alignItems={'stretch'} >
                             <Grid item > <FormikAutoComplete options={options} name={'license_plate'} label={'Search by license plate'} variant='outlined' /> </Grid>
-                            <Grid item > <FormikSelect label={'Select POI type'} options={POI_OPTIONS} name={'poi_type'} styles={styles} /></Grid>
-                            <Grid item >   <FormikSelect label={'Select radius'} options={RADIUS_OPTIONS} name={'radius'} styles={styles} /> </Grid>
+                            <Grid item > <FormikSelect label={'Select POI type'} options={POI_OPTIONS} name={'poi_type'} className={'google-maps__control__formControl'} /></Grid>
+                            <Grid item >   <FormikSelect label={'Select radius'} options={RADIUS_OPTIONS} name={'radius'} className={'google-maps__control__formControl'} /> </Grid>
                             <Grid item > 
                                 <Button style={{ height: '100%' }} color='primary' variant="contained" type='submit' disabled={  isValidating || !isValid}> Apply </Button> 
                             </Grid>
