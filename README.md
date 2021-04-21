@@ -1,4 +1,4 @@
-<!-- PROJECT LOGO -->
+ 
 <br />
 <p align="center">
 
@@ -13,7 +13,7 @@
   </p>
 </p>
 
-<!-- TABLE OF CONTENTS -->
+ 
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
@@ -60,7 +60,7 @@ This project has it's CI/CD pipeline hosted on Vercel.
 -   [React-Testing](https://testing-library.com/)
 -   [Vercel](https://vercel.com/)
 
-<!-- GETTING STARTED -->
+ 
 
 #
 
@@ -120,7 +120,7 @@ After the initial setup, you are ready to go and can start your development serv
 
 #
 
-<!-- ROADMAP -->
+ 
 
 ## Testing
 
