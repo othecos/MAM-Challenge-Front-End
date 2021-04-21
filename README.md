@@ -9,7 +9,7 @@
     <br />
      <a href="https://mam-challenge-front-end.vercel.app/"><strong>Check the demo</strong></a>
     ·
-   <a href="https://github.com/othecos/MAM-Challenge-Front-End">View Back-End</a>
+   <a href="https://github.com/othecos/MAM-Challenge-Backend-Public">View Back-End</a>
   </p>
 </p>
 
