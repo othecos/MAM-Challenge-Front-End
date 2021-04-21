@@ -88,7 +88,7 @@ To check with you have those installed, run and see some similar output:
      npm install
     ```
 
-### Configuring environment
+### Configuring environments
 
 1. Since this application uses Google Maps, you **must** provide `NEXT_PUBLIC_API_KEY` in the `.env.local`
 
