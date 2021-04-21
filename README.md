@@ -66,7 +66,7 @@ This project has it's CI/CD pipeline hosted on Vercel.
 
 ### Prerequisites
 
-You should have <strong>Node, and NPM</strong> installed to run this project.
+You should have <strong>Node and NPM</strong> installed to run this project.
 
 To check with you have those installed, run and see some similar output:
 
@@ -94,7 +94,9 @@ To check with you have those installed, run and see some similar output:
 
     - You can generate this API KEY [here](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
-2. You also must config your `NEXT_PUBLIC_HOST`. You can use our read to use server that was provided in the `.env.example` , or starting by your self locally.
+2. You also must config your `NEXT_PUBLIC_HOST`.
+   <br>
+   You can use our ready to use server that was provided in the `.env.example` , or connect to local instance.
 
 3. In the end of this steps, your `.env.local` should look like this
 
@@ -123,10 +125,9 @@ After the initial setup, you are ready to go and can start your development serv
 ## Testing
 
 To run the unit tests, just run the following command:
-
-```sh
-npm run test
-```
+    ```sh
+    npm run test
+    ```
 
 #
 
