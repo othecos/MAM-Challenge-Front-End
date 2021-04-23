@@ -1,9 +1,7 @@
-// @ts-nocheck
-
 import { render } from '@tests/jest.setup';
 import FormikSelectComponent from '@components/Form/FormikSelect'
 import { TFormikSelectProps } from '@interfaces/components/Form/FormikSelect';
-import { act, fireEvent, screen, within } from '@testing-library/react';
+import { act, fireEvent, screen } from '@testing-library/react';
 let fieldMock = {};
 let metaMock = {};
 let helperMock = {};
@@ -25,6 +23,7 @@ describe('Select Component', () => {
         { value: 'ft3', label: 'Third truck' },
         { value: 'ft4', label: 'Fourth truck' },
       ],
+      id: 'select-id',
       name: 'select-id',
       label: 'Select POI Type'
     }

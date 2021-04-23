@@ -17,6 +17,7 @@ const FormikSelectComponent = (props: TFormikSelectProps) => {
                 defaultValue={options ? options[0].value : ''}  
                 id={id}
                 label={label}
+                data-testid="select-test"
                 placeholder={placeholder ? placeholder : null}
                 onChange={(option) => {
                     helpers.setValue(option.target.value)

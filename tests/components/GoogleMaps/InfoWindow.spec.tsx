@@ -1,6 +1,4 @@
-// @ts-nocheck
- 
-import { render } from '@tests/jest.setup';
+ import { render } from '@tests/jest.setup';
 import DistanceInfoWindow from '@components/GoogleMaps/InfoWindow'
 
 describe('Infowindow Component', () => {

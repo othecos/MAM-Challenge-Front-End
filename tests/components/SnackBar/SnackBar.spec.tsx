@@ -1,5 +1,3 @@
-// @ts-nocheck
- 
 import SnackBarComponent from '@components/SnackBar';
 import { render } from '@tests/jest.setup';
 

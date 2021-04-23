@@ -1,3 +1,4 @@
+import { ISelectOptions } from '@interfaces/components/Form/FormikSelect'
 import Location from './location'
 
 
@@ -61,7 +62,7 @@ export default class Truck {
             }
         }
     }
-    toOption(): any {
+    toOption(): ISelectOptions {
         return {
             value: this.license_plate,
             label: this.license_plate

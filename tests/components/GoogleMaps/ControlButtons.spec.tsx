@@ -1,5 +1,3 @@
-// @ts-nocheck
- 
 import { render } from '@tests/jest.setup';
 import ControlButtonsComponent from '@components/GoogleMaps/ControlButtons'
 
