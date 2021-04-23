@@ -2,18 +2,11 @@
 
 import React from 'react';
 import { useField, } from 'formik';
-import { TextField, TextFieldProps } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-interface Props {
+import { TFormikAutoCompleteProps } from '@interfaces/components/Form/FormikAutoComplete';
 
-    name: string,
-    options: Array<{
-        label: string
-        value: any
-    }>,
-}
-
-const FormikAutoCompleteComponent = (props: Props & TextFieldProps) => {
+const FormikAutoCompleteComponent = (props: TFormikAutoCompleteProps ) => {
     const [field, meta, helpers] = useField(props as any);
     const { options } = props
     return (
@@ -21,12 +14,10 @@ const FormikAutoCompleteComponent = (props: Props & TextFieldProps) => {
 
             <Autocomplete
                 options={options}
+                data-testid="autocomplete"
                 getOptionLabel={(option) => option.label}
                 style={{ maxWidth: '100%' }}
-                onInputChange={(event, newInputValue) => {
-
-                    helpers.setValue(newInputValue)
-                }}
+                onInputChange={(event, newInputValue) => {  helpers.setValue(newInputValue) }}
                 renderInput={(params) => <TextField {...params}      {...props} />}
             />
 

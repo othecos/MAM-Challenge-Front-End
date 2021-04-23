@@ -1,18 +1,11 @@
-import { FormControl, InputLabel, MenuItem, Select, SelectProps } from '@material-ui/core';
+import { TFormikSelectProps } from '@interfaces/components/Form/FormikSelect';
+import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { useField } from 'formik';
 import React from 'react';
 
-interface Props {
-    options: Array<{
-        label: string
-        value: any
-    }>,
-    id: string
-    name: string,
-    className?: any
-}
 
-const FormikSelectComponent = (props: Props & SelectProps) => {
+
+const FormikSelectComponent = (props: TFormikSelectProps) => {
     const [,, helpers] = useField(props as any);
     const { options, className, placeholder,label,id } = props
     

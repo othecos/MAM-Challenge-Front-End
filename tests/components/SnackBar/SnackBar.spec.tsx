@@ -1,7 +1,7 @@
 // @ts-nocheck
  
-import { render } from './../../jest.setup';
-import SnackBarComponent from '../../../src/components/SnackBar'
+import SnackBarComponent from '@components/SnackBar';
+import { render } from '@tests/jest.setup';
 
 describe('Snack Bar Component', () => {
   let props;
@@ -17,6 +17,7 @@ describe('Snack Bar Component', () => {
     const message = getByText(props.message)
     expect(message).toBeVisible()
   });
+ 
  
 
 

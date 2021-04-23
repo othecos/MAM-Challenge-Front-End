@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 import React from 'react'
 
-const NoSSR = (props) => (
+const NoSSR = (props:any) => (
   <React.Fragment>{props? props.children : ''}</React.Fragment>
 )
 

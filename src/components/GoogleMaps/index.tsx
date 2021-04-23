@@ -8,7 +8,7 @@ import { useGoogleMapsContext } from '@hooks/useGoogleMaps';
 import Truck from '@models/truck';
 import DotenvUtils from '@utils/dotenv';
 import ControlButtons from './ControlButtons';
-import DistanceInfoWindow from './InfoWindow/DistanceInfoWindow';
+import DistanceInfoWindow from './InfoWindow';
 
 interface Props {
     trucks: Array<Truck>

@@ -1,20 +1,20 @@
 // @ts-nocheck
  
-import { render } from './../../jest.setup';
-import SnackBarComponent from '../../../src/components/SnackBar'
+import { render } from '@tests/jest.setup';
+import DistanceInfoWindow from '@components/GoogleMaps/InfoWindow'
 
-describe('Snack Bar Component', () => {
+describe('Infowindow Component', () => {
   let props;
 
   beforeEach(() => {
     props = {
-      message: 'That was an error',
+      distance: '100km',
     };
   });
 
   test('Should display correct message', async () => {
-    const { getByText } = render(<SnackBarComponent {...props} />);
-    const message = getByText(props.message)
+    const { getByText } = render(<DistanceInfoWindow {...props} />);
+    const message = getByText(`Distance: ${props.distance}`)
     expect(message).toBeVisible()
   });
  

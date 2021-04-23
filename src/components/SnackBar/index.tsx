@@ -1,16 +1,11 @@
-import { Snackbar, SnackbarOrigin } from '@material-ui/core';
-import MuiAlert, { AlertProps, Color } from '@material-ui/lab/Alert'
+import { ISnackBarProps } from '@interfaces/components/SnackBar';
+import { Snackbar } from '@material-ui/core';
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert'
 import React, { ReactElement } from 'react'
 
-export interface Props {
-    message: string
-    autoHideDuration?: number
-    onClose?: any
-    anchorOrigin?: SnackbarOrigin
-    severity?: Color
-}
 
-const defaultProps: Props = {
+
+const defaultProps: ISnackBarProps = {
     message: '',
     autoHideDuration: 6000,
     severity: 'error',
@@ -24,7 +19,7 @@ const defaultProps: Props = {
 function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-export default function SnackBarComponent(props: Props = defaultProps): ReactElement {
+export default function SnackBarComponent(props: ISnackBarProps = defaultProps): ReactElement {
     const [open, setOpen] = React.useState(true);
     const { message, onClose, autoHideDuration, anchorOrigin, severity } = props
 

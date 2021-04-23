@@ -2,11 +2,12 @@
 import { useEffect, useState } from 'react'
 import GoogleMapsComponent from '@components/GoogleMaps'
 import NoSSR from '@components/NoSSR'
-import SnackBarComponent, { SnackBarComponentProps } from '@components/SnackBar'
+import SnackBarComponent  from '@components/SnackBar'
 import { ProvideGoogleMapsContext } from '@hooks/useGoogleMaps'
 import TrucksService from '@services/trucks' 
+import { ISnackBarProps } from '@interfaces/components/SnackBar'
 
-const snackBarInitialData: SnackBarComponentProps & { isOpen: boolean } = {
+const snackBarInitialData: ISnackBarProps & { isOpen: boolean } = {
   message: '',
   isOpen: false,
   severity: 'error'

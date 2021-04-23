@@ -21,9 +21,9 @@ export enum GPS_MARKERS_PATH {
     FIRST_POINT = '/assets/icn-first-location.png',
     POINT = '/assets/icn-path.png'
 }
-export const LISBON_COORDINATES = {
-    lat: 38.722252,
-    lng: -9.139337
+export enum LISBON_COORDINATES {
+    lat = 38.722252,
+    lng = -9.139337
 }
 export const MAPS_STYLES = [
     {

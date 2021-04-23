@@ -1,23 +1,47 @@
 // @ts-nocheck
- 
-import { render } from './../../jest.setup';
-import SnackBarComponent from '../../../src/components/SnackBar'
 
-describe('Snack Bar Component', () => {
-  let props;
+import { render } from '@tests/jest.setup';
+import FormikSelectComponent from '@components/Form/FormikSelect'
+import { TFormikSelectProps } from '@interfaces/components/Form/FormikSelect';
+import { act, fireEvent, screen, within } from '@testing-library/react';
+let fieldMock = {};
+let metaMock = {};
+let helperMock = {};
+
+jest.mock("formik", () => ({
+  ...jest.requireActual("formik"),
+  useField: jest.fn(() => {
+    return [fieldMock, metaMock, helperMock];
+  }),
+}));
+describe('Select Component', () => {
+  let props: TFormikSelectProps;
 
   beforeEach(() => {
     props = {
-      message: 'That was an error',
-    };
+      options: [
+        { value: 'ft1', label: 'default truck' },
+        { value: 'ft2', label: 'Second truck' },
+        { value: 'ft3', label: 'Third truck' },
+        { value: 'ft4', label: 'Fourth truck' },
+      ],
+      name: 'select-id',
+      label: 'Select POI Type'
+    }
   });
 
-  test('Should display correct message', async () => {
-    const { getByText } = render(<SnackBarComponent {...props} />);
-    const message = getByText(props.message)
-    expect(message).toBeVisible()
-  });
- 
+  test('Click the select component to display options', async () => {
+    const { getByRole } = render(<FormikSelectComponent {...props} />);
+    expect(screen.getByText(props.options[0].label)).toBeInTheDocument()
+    const select = getByRole('button')
+    await act(async () => {
+      fireEvent.mouseDown(select)
+    })
+
+
+
+  })
+
 
 
 })
