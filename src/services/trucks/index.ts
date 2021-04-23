@@ -1,5 +1,5 @@
 
-import Truck from '../../models/truck'
+import Truck from '@models/truck'
 import axios from './../index'
 
 export default class TrucksService {

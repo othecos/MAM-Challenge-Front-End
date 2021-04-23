@@ -1,21 +1,25 @@
-export const POI_OPTIONS:Array<{value: any, label: string}> = [
-    { value: '(gas_station) OR (food) OR (hotels)' , label: 'View All' },
-    { value: 'gas_station' , label: 'Gas Stations' },
-    { value: 'food' , label: 'Restaurants' },
-    { value: 'hotels' , label: 'Hotels' },
+export const POI_OPTIONS: Array<{ value: any, label: string }> = [
+    { value: '(gas_station) OR (food) OR (hotels)', label: 'View All' },
+    { value: 'gas_station', label: 'Gas Stations' },
+    { value: 'food', label: 'Restaurants' },
+    { value: 'hotels', label: 'Hotels' },
 ]
 
-export const RADIUS_OPTIONS:Array<{value: any, label: string}> = [
-    { value: '1000' , label: '1 km' },
-    { value: '5000' , label: '5km' },
-    { value: '10000' , label: '10km' },
-    { value: '30000' , label: '30km' },
+export const RADIUS_OPTIONS: Array<{ value: any, label: string }> = [
+    { value: '1000', label: '1 km' },
+    { value: '5000', label: '5km' },
+    { value: '10000', label: '10km' },
+    { value: '30000', label: '30km' },
 ]
 
-export const MAP_ICONS = {
-    'gas_station': '/assets/icn-gas-station.png',
-    'restaurant': '/assets/icn-restaurant.png',
-    'lodging': '/assets/icn-hotel.png'
+export enum MAP_ICONS {
+    'gas_station' = '/assets/icn-gas-station.png',
+    'restaurant' = '/assets/icn-restaurant.png',
+    'lodging' = '/assets/icn-hotel.png'
+}
+export enum GPS_MARKERS_PATH {
+    FIRST_POINT = '/assets/icn-first-location.png',
+    POINT = '/assets/icn-path.png'
 }
 export const LISBON_COORDINATES = {
     lat: 38.722252,

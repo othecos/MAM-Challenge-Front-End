@@ -1,5 +1,5 @@
 import axios from 'axios';
-import DotenvUtils from '../utils/dotenv';
+import DotenvUtils from '@utils/dotenv';
 
 
 const dotenv =  new DotenvUtils()

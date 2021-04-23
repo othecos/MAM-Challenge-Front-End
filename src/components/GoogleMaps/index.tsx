@@ -3,10 +3,10 @@ import { isEmpty } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
-import { LISBON_COORDINATES, MAPS_STYLES, MAP_ICONS } from '../../config/maps';
-import { useGoogleMapsContext } from '../../context/useGoogleMaps';
-import Truck from '../../models/truck';
-import DotenvUtils from '../../utils/dotenv';
+import { GPS_MARKERS_PATH, LISBON_COORDINATES, MAPS_STYLES, MAP_ICONS } from '@config/maps';
+import { useGoogleMapsContext } from '@hooks/useGoogleMaps';
+import Truck from '@models/truck';
+import DotenvUtils from '@utils/dotenv';
 import ControlButtons from './ControlButtons';
 import DistanceInfoWindow from './InfoWindow/DistanceInfoWindow';
 
@@ -195,7 +195,7 @@ function GoogleMapsComponent(props: Props) {
             for (let index = 0; index < history.length; index++) {
                 const location = history[index];
                 const geometry = createLatLng(location.toCoordinates())
-                let icon = index === 0 ? '/assets/icn-first-location.png' : '/assets/icn-path.png'
+                let icon = index === 0 ? GPS_MARKERS_PATH.FIRST_POINT : GPS_MARKERS_PATH.POINT
                 const locationMarker = createMarker(geometry, map, icon, { height: 15, width: 15 })
                 if (locationMarker) {
                     locationMarkers.push(locationMarker)
