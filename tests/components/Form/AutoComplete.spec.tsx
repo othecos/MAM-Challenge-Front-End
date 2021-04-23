@@ -10,7 +10,7 @@ import { render } from '@tests/jest.setup';
 let fieldMock = {};
 let metaMock = {};
 let helperMock = {
-  setValue: (_: Value, _?: boolean) => { }
+  setValue: (value: Value, shouldValidate?: boolean) => { }
 };
 jest.mock("formik", () => ({
   ...jest.requireActual("formik"),
