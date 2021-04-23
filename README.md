@@ -125,9 +125,10 @@ After the initial setup, you are ready to go and can start your development serv
 ## Testing
 
 To run the unit tests, just run the following command:
-    ```sh
-    npm run test
-    ```
+
+   ```sh
+   npm run test
+   ```
 
 #
 
